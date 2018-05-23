@@ -6,7 +6,7 @@ const avatar = require('cartoon-avatar');
 const seed = async () => {
   await db.sync({ force: true });
 
-  //campuses
+  //********************** CAMPUSES ****************************/
   const nyc = await Campus.create({
     name: 'NYC Campus',
     address: '5 Hanover Square floor 25, New York, NY 10004',
@@ -33,7 +33,7 @@ const seed = async () => {
     description: `Teaching an advanced JavaScript curriculum, Fullstack Academy Chicago is the Midwest's premier coding bootcamp.`,
   });
 
-  //students
+  //********************** STUDENTS ****************************/
   const pankti = await Student.create({
     firstName: 'Pankti',
     lastName: 'Parikh',
@@ -111,6 +111,7 @@ const seed = async () => {
     campusId: rome.id,
   });
 
+  //********************** SYNC DB ****************************/
   db.close();
   console.log(`
 

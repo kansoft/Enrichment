@@ -5,10 +5,16 @@ const Student = db.define('student', {
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   email: {
     type: Sequelize.STRING,
@@ -29,6 +35,16 @@ const Student = db.define('student', {
       max: 4.0,
     },
   },
+});
+
+Student.beforeCreate(student => {
+  const nameFirst = student.firstName;
+  const nameLast = student.lastName;
+
+  student.firstName =
+    nameFirst[0].toUpperCase() + nameFirst.slice(1).toLowerCase();
+  student.lastName =
+    nameLast[0].toUpperCase() + nameLast.slice(1).toLowerCase();
 });
 
 module.exports = Student;

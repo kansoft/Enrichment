@@ -40,6 +40,7 @@
     "eslint": "^4.19.1",
     "eslint-config-fullstack": "^5.0.0",
     "eslint-plugin-react": "^7.8.2",
+    "redux-devtools-extension": "^2.13.2",
     "volleyball": "^1.4.1",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13"
