@@ -1,6 +1,6 @@
 import React from 'react';
 import CampusList from './CampusList';
-// import Students from './Students';
+import StudentList from './StudentList';
 import { Navlink, Link } from 'react-router-dom';
 
 //*-----------------    COMPONENT     -----------------*/
@@ -12,9 +12,18 @@ const Navbar = () => {
         <Link className="navbar-brand" to="/">
           <img src="/logo.png" />
         </Link>
-        <Link to="/campus" component={CampusList}>
-          Campus
-        </Link>
+        <ul>
+          <li>
+            <Link to="/campuses" component={CampusList}>
+              Campus
+            </Link>
+          </li>
+          <li>
+            <Link to="/students" component={StudentList}>
+              Students
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   );

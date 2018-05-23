@@ -5,8 +5,11 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import { fetchCampuses } from '../reducers/campuses.reducer';
 import { connect } from 'react-redux';
+
+//*-----------------     THUNK IMPORTS     -----------------*/
+import { fetchCampuses } from '../reducers/campuses.reducer';
+import { fetchStudents } from '../reducers/students.reducer';
 
 //*-----------------     COMPONENT IMPORTS     -----------------*/
 import CampusList from './CampusList';
@@ -17,8 +20,8 @@ import Navbar from './Navbar';
 //*-----------------     COMPONENT     -----------------*/
 class Root extends Component {
   componentDidMount() {
-    console.log('THIS FETCHCAMPUS LIST', this.props.fetchCampusList);
     this.props.fetchCampusList();
+    this.props.fetchStudentList();
   }
   render() {
     return (
@@ -42,6 +45,7 @@ class Root extends Component {
 const mapDispatch = dispatch => {
   return {
     fetchCampusList: () => dispatch(fetchCampuses()),
+    fetchStudentList: () => dispatch(fetchStudents()),
   };
 };
 export default connect(null, mapDispatch)(Root);

@@ -11,28 +11,57 @@ html {
 
 body {
   background: repeating-linear-gradient(30deg, #e3e3e3 0px, #e3e3e3 10px, #ccc 1px, #ccc 11px); }
-
-
+ul{
+  list-style-type: none;
+}
+/* -----------------     class     ----------------- */
   .navbar {
     border: none;
     border-radius: 0;
     border-bottom: 1px dotted grey;
     background:lightgray;
-    align-items: center;
-    justify-content: space-evenly;}
-
+  }
+  .navbar ul{
+    list-style: none;
+    margin: 0 2px;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    vertical-align: middle;
+  }
     .navbar .navbar-brand {
       padding-top: 10px;
       padding-bottom: 10px; }
 
-      .navbar .navbar-brand img {
-        height: 50px; }
+    .navbar .navbar-brand img {
+      height: 50px; }
 
-    .navbar a.active:hover {
-      border-bottom: 1px solid black
+    .campus-list {
+      border-radius: 4px;
+      margin: 0; }
+
+    .large-font {
+      font-size: 1.5em; }
+
+    .list-inline {
+      display:flex;
+      justify-content: center;
+      margin-bottom: 50px; }
+
+    .list-inline img {
+      height: 250px;
     }
-
-
+    .student-inline{
+      display:flex;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .student-inline img {
+      display: flex;
+      flex-wrap: wrap;
+      height: 100px;
+      border-radius: 8px;
+    }
 
 /* -----------------     ids     ----------------- */
     #header {
@@ -40,4 +69,9 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    #doggo {
+      display:flex;
+      flex-direction: column;
     }

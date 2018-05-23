@@ -3,11 +3,11 @@
 import { combineReducers } from 'redux';
 
 import campusesReducer from './campuses.reducer';
-// import { studentsReducer } from './students.reducer';
+import studentsReducer from './students.reducer';
 
 const rootReducer = combineReducers({
   campuses: campusesReducer,
-  // students: studentsReducer,
+  students: studentsReducer,
 });
 
 export default rootReducer;

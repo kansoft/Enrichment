@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import SingleStudent from './SingleStudent';
+
 const StudentList = props => {
   const { students } = props;
   return (
     <div>
-      {/* <h1>Hello World!</h1> */}
       <ul>
-        {students.map(student => {
-          return <li key={student.id}>{student.name}</li>;
-        })}
+        {students.map(student => (
+          <SingleStudent student={student} key={student.id} />
+        ))}
       </ul>
     </div>
   );

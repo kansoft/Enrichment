@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import SingleCampus from './SingleCampus';
+
 const CampusList = props => {
   const { campuses } = props;
   return (
     <div>
-      {/* <h1>Hello World!</h1> */}
-      <ul>
-        {campuses.map(campus => {
-          return <li key={campus.id}>{campus.name}</li>;
-        })}
+      <ul className="campus-group">
+        {campuses.map(campus => (
+          <SingleCampus campus={campus} key={campus.id} />
+        ))}
       </ul>
     </div>
   );
