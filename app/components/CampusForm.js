@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCampus } from '../reducers/campuses.reducer';
 
+//*-----------------     Default state     -----------------*/
+const defaultState = {
+  name: '',
+  address: '',
+  description: '',
+};
+
 //*-----------------     CLASS COMPONENT     -----------------*/
 class CampusForm extends Component {
   constructor() {
     super();
-    this.state = {
-      name: '',
-      address: '',
-      description: '',
-    };
+    this.state = defaultState;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -29,9 +32,7 @@ class CampusForm extends Component {
       address: this.state.address,
       description: this.state.description,
     });
-        this.setState({
-
-        })
+    this.setState(defaultState);
   }
 
   //*-----------------     Handle submit     -----------------*/
