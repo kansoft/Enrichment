@@ -14,12 +14,18 @@ export const fetchStudents = () => {
   };
 };
 
+/* ------------         Initial State         ------------------ */
+const initialState = {
+  list: [],
+  isFetching: false,
+};
+
 /* ------------         REDUCER         ------------------ */
 
-export default function studentsReducer(state = [], action) {
+export default function studentsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_STUDENTS:
-      return action.students;
+      return { list: action.students, isFetching: true };
     default:
       return state;
   }

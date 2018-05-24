@@ -8,9 +8,16 @@ const StudentList = props => {
   return (
     <div>
       <ul>
-        {students.map(student => (
-          <SingleStudent student={student} key={student.id} />
-        ))}
+        {students.list.map(student => {
+          return (
+            <div key={student.id}>
+              <SingleStudent student={student} />
+              <li>
+                <span>{student.campus.name} </span>
+              </li>
+            </div>
+          );
+        })}
       </ul>
     </div>
   );

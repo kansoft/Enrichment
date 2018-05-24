@@ -14,13 +14,18 @@ export const fetchCampuses = () => {
   };
 };
 
+/* ------------         Initial State         ------------------ */
+const initialState = {
+  list: [],
+  isFetching: false,
+};
+
 /* ------------         REDUCER         ------------------ */
 
-export default function campusesReducer(state = [], action) {
-
+export default function campusesReducer(state = initialState, action) {
   switch (action.type) {
     case SET_CAMPUSES:
-      return action.campuses;
+      return { list: action.campuses, isFetching: false };
 
     default:
       return state;

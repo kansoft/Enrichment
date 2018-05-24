@@ -8,7 +8,7 @@ const CampusList = props => {
   return (
     <div>
       <ul className="campus-group">
-        {campuses.map(campus => (
+        {campuses.list.map(campus => (
           <SingleCampus campus={campus} key={campus.id} />
         ))}
       </ul>

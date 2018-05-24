@@ -9,16 +9,15 @@ const SingleCampus = props => {
         <ul className="list-inline">
           <li>
             <Link to={`/Campuses/${campus.id}`}>
-              <img
-                className="campus-image"
-                src={'images/campus' + campus.imageUrl}
-              />
+              <img className="campus-image" src={campus.imageUrl} />
             </Link>
           </li>
           <li>
             <Link className="large-font" to={`/Campuses/${campus.id}`}>
               {campus.name}
             </Link>
+            <br />
+            <span>{`${campus.students.length} students`}</span>
           </li>
         </ul>
       </li>

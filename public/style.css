@@ -7,13 +7,14 @@
 }
 
 html {
-  background-color: #f8f8f8; }
-
-body {
   background: repeating-linear-gradient(30deg, #e3e3e3 0px, #e3e3e3 10px, #ccc 1px, #ccc 11px); }
-ul{
+
+  ul{
   list-style-type: none;
 }
+ img {
+  border-radius: 8px;
+ }
 /* -----------------     class     ----------------- */
   .navbar {
     border: none;
@@ -40,6 +41,10 @@ ul{
       border-radius: 4px;
       margin: 0; }
 
+    .campus-list img {
+      height: 250px;
+    }
+
     .large-font {
       font-size: 1.5em; }
 
@@ -51,6 +56,11 @@ ul{
     .list-inline img {
       height: 250px;
     }
+    .studentDetail-campus img {
+      border: 1px solid darkcyan;
+      padding: 5px;
+      width: 150px;
+    }
     .student-inline{
       display:flex;
       flex-wrap: wrap;
@@ -60,9 +70,21 @@ ul{
       display: flex;
       flex-wrap: wrap;
       height: 100px;
-      border-radius: 8px;
     }
 
+    .loader {
+      border: 16px solid #f3f3f3; /* Light grey */
+      border-top: 16px solid #485f69; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
 /* -----------------     ids     ----------------- */
     #header {
       width: 100%;

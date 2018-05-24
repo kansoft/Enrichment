@@ -14,11 +14,8 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    let student = await Student.findAll({
-      where: {
-        id: req.params.id,
-      },
-      include: [Campus],
+    let student = await Student.findById(req.params.id, {
+      include: [{ all: true }],
     });
     if (student) {
       res.json(student);

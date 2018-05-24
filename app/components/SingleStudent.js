@@ -13,9 +13,10 @@ const SingleStudent = props => {
             </Link>
           </li>
           <li>
-            <Link to={`/Campuses/${student.id}`}>
+            <Link to={`/Students/${student.id}`}>
               {student.firstName} {student.lastName}
             </Link>
+            <br />
           </li>
         </ul>
       </li>
