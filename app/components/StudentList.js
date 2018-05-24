@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import SingleStudent from './SingleStudent';
 import StudentAddButton from './StudentAddButton';
@@ -7,22 +8,24 @@ import StudentAddButton from './StudentAddButton';
 //*-----------------     COMPONENT     -----------------*/
 const StudentList = props => {
   const { students } = props;
+  const noCampus = 'No campus selected';
   return (
     <div>
       <div className="campus-button">
         <StudentAddButton />
       </div>
       <ul>
-        {students.list.map(student => {
-          return (
-            <div key={student.id}>
-              <SingleStudent student={student} />
-              <li>
-                <span>{student.campus.name} </span>
-              </li>
-            </div>
-          );
-        })}
+        {students.list &&
+          students.list.map(student => {
+            return (
+              <div key={student.id}>
+                <SingleStudent student={student} />
+                <li>
+                  <span>{student.campus ? student.campus.name : noCampus}</span>
+                </li>
+              </div>
+            );
+          })}
       </ul>
     </div>
   );
@@ -35,4 +38,4 @@ const mapState = state => {
   };
 };
 
-export default connect(mapState)(StudentList);
+export default withRouter(connect(mapState)(StudentList));

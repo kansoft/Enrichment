@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCampus } from '../reducers/campuses.reducer';
+import { addStudent } from '../reducers/students.reducer';
 import { withRouter } from 'react-router-dom';
 
 //*-----------------     COMPONENT IMPORTS     -----------------*/
@@ -35,14 +35,14 @@ class AddStudent extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.addCampus({
+    this.props.addStudent({
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
       campusId: this.state.campusId,
     });
-    this.setState(defaultState);
     this.props.history.push(`/students`);
+    this.setState(defaultState);
   }
 
   //*-----------------     Handle submit     -----------------*/
@@ -69,7 +69,7 @@ const mapState = state => {
 };
 const mapDispatch = dispatch => {
   return {
-    addStudent: campus => dispatch(addCampus(campus)),
+    addStudent: student => dispatch(addStudent(student)),
   };
 };
 

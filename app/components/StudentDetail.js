@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 //*-----------------     COMPONENT     -----------------*/
 const StudentDetail = props => {
@@ -48,4 +48,4 @@ const mapState = (state, ownProps) => {
   };
 };
 
-export default connect(mapState)(StudentDetail);
+export default withRouter(connect(mapState)(StudentDetail));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import SingleCampus from './SingleCampus';
 import CampusAddButton from './CampusAddButton';
@@ -15,9 +15,10 @@ const CampusList = props => {
       </div>
 
       <ul className="campus-group">
-        {campuses.list.map(campus => (
-          <SingleCampus campus={campus} key={campus.id} />
-        ))}
+        {campuses.list &&
+          campuses.list.map(campus => (
+            <SingleCampus campus={campus} key={campus.id} />
+          ))}
       </ul>
     </div>
   );
@@ -30,4 +31,4 @@ const mapState = state => {
   };
 };
 
-export default connect(mapState)(CampusList);
+export default withRouter(connect(mapState)(CampusList));

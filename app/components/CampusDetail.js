@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import SingleStudent from './SingleStudent';
+import StudentAddButton from './StudentAddButton';
 
 //*-----------------     COMPONENT     -----------------*/
 const CampusDetail = props => {
@@ -21,6 +22,9 @@ const CampusDetail = props => {
       <br />
       <div>
         <h2> Students on campus </h2>
+        <div className="campus-button">
+          <StudentAddButton />
+        </div>
         <br />
         <div>
           <ul>
@@ -44,4 +48,4 @@ const mapState = (state, ownProps) => {
   };
 };
 
-export default connect(mapState)(CampusDetail);
+export default withRouter(connect(mapState)(CampusDetail));

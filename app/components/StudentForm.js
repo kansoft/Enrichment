@@ -13,9 +13,9 @@ const StudentForm = props => {
           <input
             onChange={props.handleChange}
             value={props.firstName}
-            name="name"
+            name="firstName"
             type="text"
-            placeholder="First name"
+            placeholder="..."
           />
         </label>
         <br />
@@ -25,9 +25,9 @@ const StudentForm = props => {
           <input
             onChange={props.handleChange}
             value={props.lastName}
-            name="name"
+            name="lastName"
             type="text"
-            placeholder="Last name"
+            placeholder="..."
           />
         </label>
         <br />
@@ -37,9 +37,9 @@ const StudentForm = props => {
           <input
             onChange={props.handleChange}
             value={props.email}
-            name="name"
+            name="email"
             type="text"
-            placeholder="Email"
+            placeholder="..."
           />
         </label>
         <br />
