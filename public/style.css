@@ -16,6 +16,45 @@ html {
   border-radius: 8px;
  }
 /* -----------------     class     ----------------- */
+.button {
+  background-color: rgb(139, 177, 177);
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  border-radius: 12px;
+}
+
+.button:hover {
+  background-color: lightgray;
+  color: rgb(75, 97, 97);
+}
+.smallbutton {
+  background-color: rgb(139, 177, 177);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 12px;
+}
+
+.smallbutton:hover {
+  background-color: lightgray;
+  color: rgb(75, 97, 97);
+}
+
+.formCampus[type=text] {
+  width: 80%;
+  padding: 20px 40px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid darkcyan;
+}
   .navbar {
     border: none;
     border-radius: 0;
@@ -44,6 +83,12 @@ html {
     .campus-list img {
       height: 250px;
     }
+    .campus-button {
+      display: flex;
+      justify-content: flex-end;
+
+    }
+
 
     .large-font {
       font-size: 1.5em; }
@@ -96,4 +141,8 @@ html {
     #doggo {
       display:flex;
       flex-direction: column;
+    }
+
+    #notFound404 {
+      text-align: center;
     }

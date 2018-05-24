@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navlink, Link } from 'react-router-dom';
 
+
+//*-----------------     COMPONENT     -----------------*/
 const SingleCampus = props => {
   const { campus } = props;
   return (

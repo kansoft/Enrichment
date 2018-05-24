@@ -10,27 +10,31 @@ const seed = async () => {
   const nyc = await Campus.create({
     name: 'NYC Campus',
     address: '5 Hanover Square floor 25, New York, NY 10004',
-    imageUrl: '../public/campus/nyc.jpg',
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2017/08/31/05/36/new-york-2699520_1280.jpg',
     description:
       'A super super place to be! Located at FiDi with some amazing people studying here ',
   });
   const rome = await Campus.create({
     name: 'Rome Campus',
     address: 'Via Tolmino, 6, 00198 Roma RM, Italy',
-    imageUrl: '../public/campus/rome.jpg',
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2018/05/14/23/22/place-3401862_1280.jpg',
     description: `The world is waiting. Learn a language abroad. See the world, experience a new culture, and make friends from around the world as you prepare for your global future. EF's fun and interactive classes help you learn faster while living the language first hand. Earn college credit, participate in an internship, and explore your dream destination abroad. Start any Monday and study from two weeks and up, or join us for a semester or Gap Year abroad.`,
   });
   const chicago = await Campus.create({
     name: 'Chicago Campus',
     address: '405 W Superior St, Chicago, IL 606544',
-    imageUrl: '../public/campus/chicago.jpg',
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2016/11/06/23/51/chicago-1804479__480.jpg',
     description: `Teaching an advanced JavaScript curriculum, Fullstack Academy Chicago is the Midwest's premier coding bootcamp.`,
   });
   const mumbai = await Campus.create({
     name: 'Mumbai Campus',
     address: 'A Rd, Churchgate, Mumbai, Maharashtra 400020, India',
-    imageUrl: '../public/campus/Mumbai.jpg',
-    description: `Teaching an advanced JavaScript curriculum, Fullstack Academy Chicago is the Midwest's premier coding bootcamp.`,
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2016/05/03/20/01/mumbai-1370023_1280.jpgg',
+    description: `The world is waiting. Learn a language abroad. See the world, experience a new culture, and make friends from around the world as you prepare for your global future. EF's fun and interactive classes help you learn faster while living the language first hand. Earn college credit, participate in an internship, and explore your dream destination abroad. Start any Monday and study from two weeks and up, or join us for a semester or Gap Year abroad.`,
   });
 
   //********************** STUDENTS ****************************/

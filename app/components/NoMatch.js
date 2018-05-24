@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
+//*-----------------     COMPONENT     -----------------*/
 const NoMatch = () => {
   return (
-    <div id="doggo">
-      <h2>What you are looking for does not exist!</h2>
+    <div id="notFound404">
+      <h2>Looks like this page doesn't exist!</h2>
       <br />
-      <img src="/dog_404.png" height="400px" width="300px" />
+
+      <button className="button" type="button">
+        <Link to="/">Go Home!</Link>
+      </button>
+      <br />
+      <img src="/404.gif" style={{ width: '80%' }} />
     </div>
   );
 };

@@ -12,12 +12,14 @@ import { fetchCampuses } from '../reducers/campuses.reducer';
 import { fetchStudents } from '../reducers/students.reducer';
 
 //*-----------------     COMPONENT IMPORTS     -----------------*/
+import HomePage from './HomePage';
+import NoMatch from './NoMatch';
 import CampusList from './CampusList';
 import StudentList from './StudentList';
-import NoMatch from './NoMatch';
 import Navbar from './Navbar';
 import StudentDetail from './StudentDetail';
 import CampusDetail from './CampusDetail';
+import CampusForm from './CampusForm';
 
 //*-----------------     COMPONENT     -----------------*/
 class Root extends Component {
@@ -36,11 +38,13 @@ class Root extends Component {
           <Navbar />
           <br />
           <Switch>
-            <Redirect exact path="/" to="/campuses" />
+            {/* <Redirect exact path="/" to="/campuses" /> */}
+            <Route exact path="/" component={HomePage} />
             <Route exact path="/campuses" component={CampusList} />
             <Route exact path="/students" component={StudentList} />
-            <Route path="/students/:id" component={StudentDetail} />
-            <Route path="/campuses/:id" component={CampusDetail} />
+            <Route exact path="/campuses/campusForm" component={CampusForm} />
+            <Route exact path="/students/:id" component={StudentDetail} />
+            <Route exact path="/campuses/:id" component={CampusDetail} />
             <Route component={NoMatch} />
           </Switch>
         </div>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SingleStudent from './SingleStudent';
 
+//*-----------------     COMPONENT     -----------------*/
 const CampusDetail = props => {
   const selectedCampus = props.selectedCampus;
   console.log(selectedCampus.students.map(student => student));
@@ -35,6 +36,7 @@ const CampusDetail = props => {
   );
 };
 
+//*-----------------     MAPPING TO STORE     -----------------*/
 const mapState = (state, ownProps) => {
   const id = +ownProps.match.params.id;
   const findCampus = state.campuses.list.find(campus => campus.id === id);

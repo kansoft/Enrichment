@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import SingleStudent from './SingleStudent';
 
+//*-----------------     COMPONENT     -----------------*/
 const StudentList = props => {
   const { students } = props;
   return (
@@ -23,6 +24,7 @@ const StudentList = props => {
   );
 };
 
+//*-----------------     MAPPING TO STORE     -----------------*/
 const mapState = state => {
   return {
     students: state.students,
