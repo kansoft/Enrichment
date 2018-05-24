@@ -2,12 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import SingleStudent from './SingleStudent';
+import StudentAddButton from './StudentAddButton';
 
 //*-----------------     COMPONENT     -----------------*/
 const StudentList = props => {
   const { students } = props;
   return (
     <div>
+      <div className="campus-button">
+        <StudentAddButton />
+      </div>
       <ul>
         {students.list.map(student => {
           return (

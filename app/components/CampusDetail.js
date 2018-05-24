@@ -6,7 +6,6 @@ import SingleStudent from './SingleStudent';
 //*-----------------     COMPONENT     -----------------*/
 const CampusDetail = props => {
   const selectedCampus = props.selectedCampus;
-  console.log(selectedCampus.students.map(student => student));
   return (
     <div>
       <div>
@@ -42,9 +41,6 @@ const mapState = (state, ownProps) => {
   const findCampus = state.campuses.list.find(campus => campus.id === id);
   return {
     selectedCampus: findCampus,
-    // selectedStudent: state.student.list.find(
-    //   student => findCampus.student.id === student.id
-    // ),
   };
 };
 

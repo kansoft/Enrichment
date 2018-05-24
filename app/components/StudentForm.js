@@ -1,45 +1,52 @@
 import React from 'react';
+import CampusSelectForm from './CampusSelectForm';
 
-const CampusForm = props => {
+const StudentForm = props => {
   return (
     <form onSubmit={props.handleSubmit}>
-      <h2>New Campus Form</h2>
+      <h2>New Student Form</h2>
+      <br />
+
       <div className="formCampus">
         <label>
-          Name:
+          First Name:
           <input
             onChange={props.handleChange}
-            value={props.name}
+            value={props.firstName}
             name="name"
             type="text"
-            placeholder="name please..."
+            placeholder="First name"
           />
         </label>
         <br />
+        <br />
         <label>
-          Address:
+          Last Name:
           <input
             onChange={props.handleChange}
-            value={props.address}
-            name="address"
+            value={props.lastName}
+            name="name"
             type="text"
-            placeholder="location please..."
+            placeholder="Last name"
           />
         </label>
+        <br />
         <br />
         <label>
-          Description:
-          <textarea
+          Email:
+          <input
             onChange={props.handleChange}
-            value={props.description}
-            name="description"
+            value={props.email}
+            name="name"
             type="text"
-            placeholder="tell us more about your campus..."
+            placeholder="Email"
           />
         </label>
         <br />
+        <br />
+        <CampusSelectForm {...props} handleChange={props.handleChange} />
         <button
-          disabled={!props.name || !props.address}
+          disabled={!props.firstName || !props.lastName || !props.email}
           className="smallbutton"
           type="submit"
         >
@@ -50,4 +57,4 @@ const CampusForm = props => {
   );
 };
 
-export default CampusForm;
+export default StudentForm;

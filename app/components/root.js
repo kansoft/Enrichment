@@ -19,7 +19,8 @@ import StudentList from './StudentList';
 import Navbar from './Navbar';
 import StudentDetail from './StudentDetail';
 import CampusDetail from './CampusDetail';
-import CampusForm from './CampusForm';
+import AddCampus from './AddCampus';
+import AddStudent from './AddStudent';
 
 //*-----------------     COMPONENT     -----------------*/
 class Root extends Component {
@@ -42,7 +43,8 @@ class Root extends Component {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/campuses" component={CampusList} />
             <Route exact path="/students" component={StudentList} />
-            <Route exact path="/campuses/campusForm" component={CampusForm} />
+            <Route exact path="/campuses/campusForm" component={AddCampus} />
+            <Route exact path="/students/studentForm" component={AddStudent} />
             <Route exact path="/students/:id" component={StudentDetail} />
             <Route exact path="/campuses/:id" component={CampusDetail} />
             <Route component={NoMatch} />

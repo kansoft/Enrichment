@@ -15,7 +15,7 @@ export const fetchCampuses = () => {
     try {
       dispatch(action);
     } catch (err) {
-      console.error(`Fetching story unsuccessful`, err);
+      console.error(`Fetching campus unsuccessful`, err);
     }
   };
 };
@@ -26,7 +26,7 @@ export const addCampus = campus => {
     try {
       dispatch(create(data));
     } catch (err) {
-      console.error(`Creating story : ${data} unsuccessful`, err);
+      console.error(`Creating campus : ${data} unsuccessful`, err);
     }
   };
 };
@@ -42,9 +42,9 @@ const initialState = {
 export default function campusesReducer(state = initialState, action) {
   switch (action.type) {
     case SET_CAMPUSES:
-      return { list: action.campuses, isFetching: false };
+      return { list: action.campuses, isFetching: true };
     case CREATE:
-      return { list: [...state.list, action.campus], isFetching: false };
+      return { list: [...state.list, action.campus], isFetching: true };
 
     default:
       return state;
