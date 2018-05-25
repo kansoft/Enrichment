@@ -11,9 +11,6 @@ const defaultState = {
   firstName: '',
   lastName: '',
   email: '',
-  // imageUrl:
-  //   'https://beyondtheboxresources.co.uk/wp-content/uploads/2017/07/avatar-student.png',
-  // gpa: null,
   campusId: null,
 };
 
@@ -41,7 +38,6 @@ class AddStudent extends Component {
       email: this.state.email,
       campusId: this.state.campusId,
     });
-    this.props.history.push(`/students`);
     this.setState(defaultState);
   }
 
@@ -67,9 +63,9 @@ const mapState = state => {
     campuses: state.campuses,
   };
 };
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch, ownProps) => {
   return {
-    addStudent: student => dispatch(addStudent(student)),
+    addStudent: student => dispatch(addStudent(student, ownProps)),
   };
 };
 

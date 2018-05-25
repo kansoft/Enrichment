@@ -1,13 +1,13 @@
 /* -----------------    ACTION TYPES    ------------------ */
 const SET_CAMPUSES = 'SET_CAMPUSES';
 const CREATE = 'CREATE_CAMPUS';
-const UPDATE = 'UPDATE_CAMPUS';
+// const UPDATE = 'UPDATE_CAMPUS';
 export const REMOVE = 'REMOVE_CAMPUS';
 
 /* ------------    ACTION CREATORS      ------------------ */
 const setCampuses = campuses => ({ type: SET_CAMPUSES, campuses });
 const create = campus => ({ type: CREATE, campus });
-const update = campus => ({ type: UPDATE, campus });
+// const update = campus => ({ type: UPDATE, campus });
 const remove = id => ({ type: REMOVE, id });
 
 /* ------------         Initial State         ------------------ */
@@ -51,13 +51,25 @@ export const fetchCampuses = () => {
   };
 };
 
-export const addCampus = campus => {
+export const addCampus = (campus, ownProps) => {
   return async (dispatch, getState, { axios }) => {
     const { data } = await axios.post('/api/campuses', campus);
     try {
       dispatch(create(data));
+      ownProps.history.push(`/campuses/${data.id}`);
     } catch (err) {
       console.error(`Creating campus : ${data} unsuccessful`, err);
+    }
+  };
+};
+
+export const removeCampus = id => {
+  return async (dispatch, getState, { axios }) => {
+    await axios.delete(`/api/campuses/${id}`);
+    try {
+      dispatch(remove(id));
+    } catch (err) {
+      console.error(`Removing campus: ${id} unsuccessful`, err);
     }
   };
 };

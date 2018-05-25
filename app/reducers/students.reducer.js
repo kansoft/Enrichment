@@ -3,13 +3,13 @@ import { REMOVE as REMOVE_STUDENT } from './campuses.reducer';
 /* -----------------    ACTION TYPES    ------------------ */
 const SET_STUDENTS = 'SET_STUDENTS';
 const CREATE = 'CREATE_STUDENT';
-const UPDATE = 'UPDATE_STUDENT';
+// const UPDATE = 'UPDATE_STUDENT';
 const REMOVE = 'REMOVE_STUDENT';
 
 /* ------------    ACTION CREATORS      ------------------ */
 const setStudents = students => ({ type: SET_STUDENTS, students });
 const create = student => ({ type: CREATE, student });
-const update = student => ({ type: UPDATE, student });
+// const update = student => ({ type: UPDATE, student });
 const remove = id => ({ type: REMOVE, id });
 
 /* ------------         Initial State         ------------------ */
@@ -58,13 +58,25 @@ export const fetchStudents = () => {
   };
 };
 
-export const addStudent = student => {
+export const addStudent = (student, ownProps) => {
   return async (dispatch, getState, { axios }) => {
     const { data } = await axios.post('/api/students', student);
     try {
       dispatch(create(data));
+      ownProps.history.push(`/students/${data.id}`);
     } catch (err) {
       console.error(`Creating student : ${data} unsuccessful`, err);
+    }
+  };
+};
+
+export const removeStudent = id => {
+  return async (dispatch, getState, { axios }) => {
+    await axios.delete(`/api/students/${id}`);
+    try {
+      dispatch(remove(id));
+    } catch (err) {
+      console.error(`Removing student: ${id} unsuccessful`, err);
     }
   };
 };

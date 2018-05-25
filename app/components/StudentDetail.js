@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import { removeStudent } from '../reducers/students.reducer';
 
 //*-----------------     COMPONENT     -----------------*/
 const StudentDetail = props => {
-  const selectedStudent = props.selectedStudent;
-  const selectedCampus = props.selectedCampus;
+  const { selectedStudent, selectedCampus, removeStudent } = props;
+  const noCampus = 'No campus selected';
   const gpa = selectedStudent.gpa || 'New Student no GPA';
   return (
     <div>
@@ -18,6 +19,16 @@ const StudentDetail = props => {
         </h1>
         <br />
         <h4>GAP: {gpa} </h4>
+        <br />
+        <div>
+          <button
+            className="deleteButton"
+            type="button"
+            onClick={() => removeStudent(selectedStudent.id)}
+          >
+            Delete
+          </button>
+        </div>
       </div>
       <br />
       <div>
@@ -29,7 +40,11 @@ const StudentDetail = props => {
             {selectedStudent.campus.name}
           </Link>
           <br />
-          <span>{`${selectedCampus.students.length} students`}</span>
+          <span>
+            {selectedCampus
+              ? `${selectedCampus.students.length} students`
+              : noCampus}
+          </span>
         </div>
       </div>
     </div>
@@ -48,4 +63,13 @@ const mapState = (state, ownProps) => {
   };
 };
 
-export default withRouter(connect(mapState)(StudentDetail));
+const mapDispatch = (dispatch, ownProps) => {
+  return {
+    removeStudent: id => {
+      dispatch(removeStudent(id, ownProps));
+      ownProps.history.push('/students');
+    },
+  };
+};
+
+export default withRouter(connect(mapState, mapDispatch)(StudentDetail));

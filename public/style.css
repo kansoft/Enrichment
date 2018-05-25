@@ -50,6 +50,20 @@ html {
   color: rgb(75, 97, 97);
 }
 
+.deleteButton {
+  background-color: rgb(156, 100, 93);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 12px;
+}
+
+.deleteButton:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 .formCampus[type=text] {
   width: 80%;
   padding: 20px 40px;

@@ -39,7 +39,6 @@ class AddCampus extends Component {
       description: this.state.description,
     });
     this.setState(defaultState);
-    this.props.history.push(`/campuses`);
   }
 
   //*-----------------     Handle submit     -----------------*/
@@ -60,9 +59,9 @@ class AddCampus extends Component {
 
 //*-----------------     MAPPING TO STORE     -----------------*/
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch, ownProps) => {
   return {
-    addCampus: campus => dispatch(addCampus(campus)),
+    addCampus: campus => dispatch(addCampus(campus, ownProps)),
   };
 };
 

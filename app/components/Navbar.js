@@ -14,14 +14,10 @@ const Navbar = () => {
         </Link>
         <ul>
           <li>
-            <Link to="/campuses" component={CampusList}>
-              Campus
-            </Link>
+            <Link to="/campuses">Campus</Link>
           </li>
           <li>
-            <Link to="/students" component={StudentList}>
-              Students
-            </Link>
+            <Link to="/students">Students</Link>
           </li>
         </ul>
       </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Navlink, Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 //*-----------------     COMPONENT     -----------------*/
 const SingleStudent = props => {
