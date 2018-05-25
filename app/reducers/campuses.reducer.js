@@ -1,7 +1,8 @@
+import { CREATE as CREATE_STUDENT } from './students.reducer';
 /* -----------------    ACTION TYPES    ------------------ */
-const SET_CAMPUSES = 'SET_CAMPUSES';
-const CREATE = 'CREATE_CAMPUS';
-const UPDATE = 'UPDATE_CAMPUS';
+export const SET_CAMPUSES = 'SET_CAMPUSES';
+export const CREATE = 'CREATE_CAMPUS';
+export const UPDATE = 'UPDATE_CAMPUS';
 export const REMOVE = 'REMOVE_CAMPUS';
 
 /* ------------    ACTION CREATORS      ------------------ */
@@ -25,6 +26,9 @@ export default function campusesReducer(state = initialState, action) {
 
     case CREATE:
       return { list: [...state.list, action.campus], isFetching: true };
+
+    case CREATE_STUDENT:
+      return { list: [...state.list, action.student], isFetching: true };
 
     case UPDATE:
       return {
@@ -74,7 +78,7 @@ export const addCampus = (campus, ownProps) => {
 export const updateCampus = (id, campus, ownProps) => {
   return async (dispatch, getState, { axios }) => {
     try {
-      const { data } = await axios.update(`/api/campuses/${id}`, campus);
+      const { data } = await axios.put(`/api/campuses/${id}`, campus);
       dispatch(update(data));
       ownProps.history.push(`/campuses/${data.id}`);
     } catch (err) {

@@ -21,6 +21,8 @@ import StudentDetail from './StudentDetail';
 import CampusDetail from './CampusDetail';
 import AddCampus from './AddCampus';
 import AddStudent from './AddStudent';
+import UpdateStudent from './UpdateStudent';
+import UpdateCampus from './UpdateCampus';
 
 //*-----------------     COMPONENT     -----------------*/
 class Root extends Component {
@@ -45,6 +47,16 @@ class Root extends Component {
             <Route exact path="/students" component={StudentList} />
             <Route exact path="/campuses/campusForm" component={AddCampus} />
             <Route exact path="/students/studentForm" component={AddStudent} />
+            <Route
+              exact
+              path="/students/studentForm/:id"
+              component={UpdateStudent}
+            />
+            <Route
+              exact
+              path="/campuses/campusForm/:id"
+              component={UpdateCampus}
+            />
             <Route exact path="/students/:id" component={StudentDetail} />
             <Route exact path="/campuses/:id" component={CampusDetail} />
             <Route component={NoMatch} />

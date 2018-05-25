@@ -11,7 +11,7 @@ const defaultState = {
   name: '',
   address: '',
   description: '',
-  // imageUrl:
+  imageUrl: ' ',
   //   'https://s-media-cache-ak0.pinimg.com/originals/53/0f/e3/530fe38e8bef56d41990f5294d49dc3c.jpg',
 };
 
@@ -22,6 +22,7 @@ class AddCampus extends Component {
     this.state = defaultState;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.fileChangedHandler = this.fileChangedHandler.bind(this);
   }
 
   //*-----------------     Handle change     -----------------*/
@@ -37,9 +38,14 @@ class AddCampus extends Component {
       name: this.state.name,
       address: this.state.address,
       description: this.state.description,
+      imageUrl: this.state.imageUrl,
     });
     this.setState(defaultState);
   }
+
+  fileChangedHandler = evt => {
+    this.setState({ imageUrl: evt.target.files[0] });
+  };
 
   //*-----------------     Handle submit     -----------------*/
 
@@ -51,6 +57,7 @@ class AddCampus extends Component {
           {...this.state}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          fileChangedHandler={this.fileChangedHandler}
         />
       </div>
     );

@@ -21,7 +21,7 @@
     "express": "^4.14.0",
     "lodash": "^4.17.10",
     "pg": "^6.1.0",
-    "react": "^15.3.2",
+    "react": "^15.6.0",
     "react-contenteditable": "^2.1.0",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",

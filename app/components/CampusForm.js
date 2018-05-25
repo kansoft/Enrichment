@@ -1,6 +1,9 @@
 import React from 'react';
 
 const CampusForm = props => {
+  const image = props.imageUrl
+    ? props.imageUrl
+    : 'https://www.chefbakers.com/userfiles/pin_photo62522.jpg';
   return (
     <form onSubmit={props.handleSubmit}>
       <h2>New Campus Form</h2>
@@ -16,6 +19,7 @@ const CampusForm = props => {
           />
         </label>
         <br />
+        <br />
         <label>
           Address:
           <input
@@ -27,6 +31,7 @@ const CampusForm = props => {
           />
         </label>
         <br />
+        <br />
         <label>
           Description:
           <textarea
@@ -37,6 +42,11 @@ const CampusForm = props => {
             placeholder="tell us more about your campus..."
           />
         </label>
+        <br />
+        <br />
+        <img className="student-image" src={image} width={150} height={150} />
+        <input type="file" onChange={props.fileChangedHandler} />
+        <br />
         <br />
         <button
           disabled={!props.name || !props.address}

@@ -2,7 +2,7 @@ import { REMOVE as REMOVE_STUDENT } from './campuses.reducer';
 
 /* -----------------    ACTION TYPES    ------------------ */
 const SET_STUDENTS = 'SET_STUDENTS';
-const CREATE = 'CREATE_STUDENT';
+export const CREATE = 'CREATE_STUDENT';
 const UPDATE = 'UPDATE_STUDENT';
 const REMOVE = 'REMOVE_STUDENT';
 
@@ -82,9 +82,9 @@ export const addStudent = (student, ownProps) => {
 export const updateStudent = (id, student, ownProps) => {
   return async (dispatch, getState, { axios }) => {
     try {
-      const { data } = await axios.update(`/api/students/${id}`, student);
+      const { data } = await axios.put(`/api/students/${id}`, student);
       dispatch(update(data));
-      ownProps.history.push(`/students/${data.id}`);
+      // ownProps.history.push(`/students/${data.id}`);
     } catch (err) {
       console.error(`Updating student: ${id} unsuccessful`, err);
     }

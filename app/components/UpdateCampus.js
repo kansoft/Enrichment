@@ -1,29 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addStudent } from '../reducers/students.reducer';
 import { withRouter } from 'react-router-dom';
 
 //*-----------------     COMPONENT IMPORTS     -----------------*/
-import StudentForm from './StudentForm';
+import CampusForm from './CampusForm';
+import { updateCampus } from '../reducers/campuses.reducer';
 
 //*-----------------     Default state     -----------------*/
+
 const defaultState = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  imageUrl: '',
-  gpa: 0.0,
-  campusId: null,
+  name: '',
+  address: '',
+  description: '',
+  imageUrl: ' ',
+  warningMessage: '',
 };
 
 //*-----------------     CLASS COMPONENT     -----------------*/
-class AddStudent extends Component {
-  constructor() {
-    super();
-    this.state = defaultState;
+
+class UpdateCampus extends Component {
+  constructor(props) {
+    super(props);
+    this.state = props.student;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fileChangedHandler = this.fileChangedHandler.bind(this);
+  }
+
+  //*-----------------     LIFECYCYLE HOOKS     -----------------*/
+  componentDidMount() {
+    const { campus } = this.props;
+    this.setState({
+      name: campus.name,
+      address: campus.address,
+      imageUrl: campus.imageUrl,
+      warningMessage: 'Field is required!',
+    });
   }
 
   //*-----------------     Event Handlers     -----------------*/
@@ -35,13 +47,10 @@ class AddStudent extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.addStudent({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
+    this.props.updateCampus({
+      name: this.state.name,
+      address: this.state.address,
       imageUrl: this.state.imageUrl,
-      gpa: this.state.gpa,
-      campusId: this.state.campusId,
     });
     this.setState(defaultState);
   }
@@ -51,11 +60,10 @@ class AddStudent extends Component {
   };
 
   //*-----------------     Render     -----------------*/
-
   render() {
     return (
       <div>
-        <StudentForm
+        <CampusForm
           {...this.state}
           {...this.props}
           handleChange={this.handleChange}
@@ -67,16 +75,18 @@ class AddStudent extends Component {
   }
 }
 
-//*-----------------     MAPPING TO STORE     -----------------*/
-const mapState = state => {
+const mapState = (state, ownProps) => {
+  const id = +ownProps.match.params.id;
   return {
-    campuses: state.campuses,
-  };
-};
-const mapDispatch = (dispatch, ownProps) => {
-  return {
-    addStudent: student => dispatch(addStudent(student, ownProps)),
+    campus: state.campuses.list.find(campus => campus.id === id),
   };
 };
 
-export default withRouter(connect(mapState, mapDispatch)(AddStudent));
+const mapDispatch = (dispatch, ownProps) => {
+  const id = +ownProps.match.params.id;
+  return {
+    updateCampus: student => dispatch(updateCampus(id, student, ownProps)),
+  };
+};
+
+export default withRouter(connect(mapState, mapDispatch)(UpdateCampus));

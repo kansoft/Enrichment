@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import SingleStudent from './SingleStudent';
 import StudentAddButton from './StudentAddButton';
 import { removeCampus } from '../reducers/campuses.reducer';
@@ -33,6 +33,14 @@ class CampusDetail extends Component {
         </div>
         <br />
         <div>
+          <button className="editButton" type="button">
+            <Link
+              to={`/campuses/campusForm/${selectedCampus.id}`}
+              className="editButton-link"
+            >
+              Edit
+            </Link>
+          </button>
           <button
             className="deleteButton"
             type="button"

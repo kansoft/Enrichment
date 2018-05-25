@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import { withRouter } from 'react-router-dom';
 
 //*-----------------     COMPONENT IMPORTS     -----------------*/
@@ -13,8 +12,9 @@ const defaultState = {
   lastName: '',
   email: '',
   imageUrl: '',
-  gpa: null,
+  gpa: 0.0,
   campusId: null,
+  warningMessage: '',
 };
 
 //*-----------------     CLASS COMPONENT     -----------------*/
@@ -22,11 +22,15 @@ const defaultState = {
 class UpdateStudent extends Component {
   constructor(props) {
     super(props);
-    this.state = defaultState;
+    this.state = props.student;
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fileChangedHandler = this.fileChangedHandler.bind(this);
   }
 
+  //*-----------------     LIFECYCYLE HOOKS     -----------------*/
   componentDidMount() {
-    const student = this.props.student;
+    const { student } = this.props;
     this.setState({
       firstName: student.firstName,
       lastName: student.lastName,
@@ -34,9 +38,43 @@ class UpdateStudent extends Component {
       imageUrl: student.imageUrl,
       gpa: student.gpa,
       campusId: student.campusId,
+      warningMessage: 'Field is required!',
     });
   }
 
+  // componentWillReceiveProps(nextProps, oldProps) {
+  //   if (newProps.student !== oldProps.student) {
+  //     this.setState({
+  //       student: newProps.student,
+  //     });
+  //   }
+  // }
+
+  //*-----------------     Event Handlers     -----------------*/
+  handleChange(evt) {
+    this.setState({
+      [evt.target.name]: evt.target.value,
+    });
+  }
+
+  handleSubmit(evt) {
+    evt.preventDefault();
+    this.props.updateStudent({
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      imageUrl: this.state.imageUrl,
+      gpa: this.state.gpa,
+      campusId: this.state.campusId,
+    });
+    this.setState(defaultState);
+  }
+
+  fileChangedHandler = evt => {
+    this.setState({ imageUrl: evt.target.files[0] });
+  };
+
+  //*-----------------     Render     -----------------*/
   render() {
     return (
       <div>
@@ -45,6 +83,7 @@ class UpdateStudent extends Component {
           {...this.props}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          fileChangedHandler={this.fileChangedHandler}
         />
       </div>
     );
@@ -65,4 +104,13 @@ const mapDispatch = (dispatch, ownProps) => {
   };
 };
 
-export default withRouter(connect(null, mapDispatch)(UpdateStudent));
+export default withRouter(connect(mapState, mapDispatch)(UpdateStudent));
+
+// static getDerivedStateFromProps(nextProps, prevState) {
+//   if (nextProps.student !== prevState.student) {
+//     return {
+//       student: nextProps.student,
+//     };
+//   }
+//   return null;
+// }
