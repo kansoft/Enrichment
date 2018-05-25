@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+/*-----------------     Component Import     -----------------*/
 import SingleCampus from './SingleCampus';
 import CampusAddButton from './CampusAddButton';
 

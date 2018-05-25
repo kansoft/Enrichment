@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const CampusSelectForm = props => {
   const { handleChange } = props;
@@ -21,4 +22,9 @@ const CampusSelectForm = props => {
   );
 };
 
-export default CampusSelectForm;
+const mapState = state => {
+  return {
+    campuses: state.campuses,
+  };
+};
+export default connect(mapState)(CampusSelectForm);

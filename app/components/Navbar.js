@@ -12,14 +12,12 @@ const Navbar = () => {
         <Link className="navbar-brand" to="/">
           <img src="/logo.png" />
         </Link>
-        <ul>
-          <li>
-            <Link to="/campuses">Campus</Link>
-          </li>
-          <li>
-            <Link to="/students">Students</Link>
-          </li>
-        </ul>
+        <div className="nav-item">
+          <Link to="/campuses">Campus</Link>
+        </div>
+        <div className="nav-item">
+          <Link to="/students">Students</Link>
+        </div>
       </div>
     </div>
   );

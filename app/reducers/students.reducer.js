@@ -84,7 +84,7 @@ export const updateStudent = (id, student, ownProps) => {
     try {
       const { data } = await axios.put(`/api/students/${id}`, student);
       dispatch(update(data));
-      // ownProps.history.push(`/students/${data.id}`);
+      ownProps.history.push(`/students/${id}`);
     } catch (err) {
       console.error(`Updating student: ${id} unsuccessful`, err);
     }

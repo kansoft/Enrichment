@@ -7,19 +7,19 @@ const SingleStudent = props => {
   return (
     <div>
       <li>
-        <ul className="student-inline">
-          <li>
+        <div className="student-profile">
+          <span>
             <Link to={`/Students/${student.id}`}>
-              <img className="student-image" src={student.imageUrl} />
+              <img className="headshot" src={student.imageUrl} />
             </Link>
-          </li>
-          <li>
+          </span>
+          <div className="student-name">
             <Link to={`/Students/${student.id}`}>
               {student.firstName} {student.lastName}
             </Link>
             <br />
-          </li>
-        </ul>
+          </div>
+        </div>
       </li>
     </div>
   );

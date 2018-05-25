@@ -33,7 +33,7 @@ class Root extends Component {
   render() {
     const { isFetching } = this.props;
     if (!isFetching) {
-      return <div className="loader"> Loading</div>;
+      return <div className="loader" />;
     }
     return (
       <Router>
@@ -72,7 +72,7 @@ class Root extends Component {
 const matchstate = state => {
   const { students, campuses } = state;
   return {
-    isFetching: state.students.isFetching || state.campuses.isFetching,
+    isFetching: state.students.isFetching && state.campuses.isFetching,
   };
 };
 

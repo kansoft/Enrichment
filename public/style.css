@@ -16,11 +16,15 @@ html {
   border-radius: 8px;
  }
 /* -----------------     class     ----------------- */
+.homepage {
+  padding: 25px;
+}
 .button {
   background-color: rgb(139, 177, 177);
   border: none;
   color: white;
   padding: 12px 28px;
+  margin:8px;
   text-align: center;
   display: inline-block;
   font-size: 25px;
@@ -36,6 +40,7 @@ html {
   border: none;
   color: white;
   padding: 8px 12px;
+  margin: 25px;
   text-align: center;
   display: inline-block;
   font-size: 15px;
@@ -53,6 +58,7 @@ html {
   background-color:  rgb(147, 177, 139);
   border: none;
   padding: 8px 12px;
+  margin: 5px;
   text-align: center;
   display: inline-block;
   font-size: 15px;
@@ -70,6 +76,7 @@ html {
   border: none;
   color: white;
   padding: 8px 12px;
+  margin: 5px;
   text-align: center;
   display: inline-block;
   font-size: 15px;
@@ -88,17 +95,20 @@ html {
   border-bottom: 2px solid darkcyan;
 }
   .navbar {
+    width: calc(100%);
+    left: 100px;
     border: none;
     border-radius: 0;
     border-bottom: 1px dotted grey;
     background:lightgray;
+    padding-left: 10px;
+    padding-right: 10px
   }
+
   .navbar ul{
     list-style: none;
     margin: 0 2px;
     padding: 0;
-    display: flex;
-    justify-content: space-around;
     vertical-align: middle;
   }
     .navbar .navbar-brand {
@@ -106,8 +116,31 @@ html {
       padding-bottom: 10px; }
 
     .navbar .navbar-brand img {
-      height: 50px; }
+      position: absolute;
+      height: 75px;
+      padding: 5px; }
 
+      nav {
+
+        font-size: 30px;
+        width: calc(100%);
+      }
+      .nav-item a {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 1.3em;
+        color: #fff;
+        text-decoration: none;
+        padding: 5px;
+      }
+      .nav-item a:hover {
+        color: darkcyan;
+        border-radius: 5px;
+      }
+
+      .studentList {
+        padding: 15px;
+      }
     .campus-list {
       border-radius: 4px;
       margin: 0; }
@@ -120,8 +153,24 @@ html {
       justify-content: flex-end;
 
     }
-
-
+    .singleDetail{
+      padding: 25px
+    }
+    .singleDetail .singleInfo {
+      width: 60%;
+      position: relative;
+      left: 400px;
+      top: -250px;
+    }
+    .singleCampus {
+      padding: 25px;
+      position: relative;
+      top: -150px;
+    }
+    .relatedInfo {
+      position: relative;
+      top: -200px;
+    }
     .large-font {
       font-size: 1.5em; }
 
@@ -133,25 +182,61 @@ html {
     .list-inline img {
       height: 250px;
     }
+
+
     .studentDetail-campus img {
-      border: 1px solid darkcyan;
       padding: 5px;
-      width: 150px;
+      width: 250px;
     }
-    .student-inline{
-      display:flex;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
+    .studentDetail-campus .information {
+      font-size: 25px;
+      position: relative;
+      top: -170px;
+      left: 250px;
     }
-    .student-inline img {
+    .studentDetail-campus .campus {
+      font-size: 20px;
+      position: relative;
+      top: -180px;
+      left: 250px;
+    }
+    .singleStudent {
+      height: 100%;
+    }
+    .singleStudent .wrap {
       display: flex;
       flex-wrap: wrap;
-      height: 100px;
     }
 
+    .singleStudent .student-profile {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .singleStudent .student-profile {
+      width:40%;
+      transition: background-color 0.3s;
+    }
+    .singleStudent .student_campus {
+      position: relative;
+      left: 85px;
+      top: -40px;
+    }
+    .singleStudent .student-profile:hover {
+      color: #fff;
+      background-color:  lightgrey
+    }
+    .singleStudent .student-profile .headshot {
+      height: 5em;
+      width: 5em;
+      margin-left: calc(50% - 2.5em);
+    }
+    .singleStudent .student-profile .student-name {
+      text-align: center;
+      font-size: 25px;
+    }
     .loader {
-      border: 16px solid #f3f3f3; /* Light grey */
-      border-top: 16px solid #485f69; /* Blue */
+      border: 16px solid #f3f3f3;
+      border-top: 16px solid #485f69;
       border-radius: 50%;
       width: 120px;
       height: 120px;

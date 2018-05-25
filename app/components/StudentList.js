@@ -11,26 +11,30 @@ const StudentList = props => {
   const noCampus = 'No campus selected';
   const noStudents = 'There are no students registered in the database';
   return (
-    <div>
+    <div className="studentList">
+      <h2>Student List:</h2>
       <div className="campus-button">
         <StudentAddButton />
       </div>
-      <ul>
-        {students.list.length
-          ? students.list.map(student => {
-              return (
-                <div key={student.id}>
-                  <SingleStudent student={student} />
-                  <li>
-                    <span>
-                      {student.campus ? student.campus.name : noCampus}
-                    </span>
-                  </li>
-                </div>
-              );
-            })
-          : noStudents}
-      </ul>
+      <div className="singleStudent">
+        <ul>
+          {students.list.length
+            ? students.list.map(student => {
+                return (
+                  <div key={student.id}>
+                    <SingleStudent student={student} />
+                    <li>
+                      <span className='student_campus'>
+                        Campus:
+                        {student.campus ? student.campus.name : noCampus}
+                      </span>
+                    </li>
+                  </div>
+                );
+              })
+            : noStudents}
+        </ul>
+      </div>
     </div>
   );
 };

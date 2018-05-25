@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+
+//*-----------------     Component Import     -----------------*/
 import SingleStudent from './SingleStudent';
 import StudentAddButton from './StudentAddButton';
 import { removeCampus } from '../reducers/campuses.reducer';
+import CampusEditDeleteButton from './CampusEdit_DeleteButton';
 
 //*-----------------     CLASS COMPONENT     -----------------*/
 class CampusDetail extends Component {
@@ -21,41 +24,30 @@ class CampusDetail extends Component {
     const { selectedCampus, removeCampus } = this.props;
     return (
       <div>
-        <div>
+        <div className="singleDetail">
           <div className="campus-list">
             <img src={selectedCampus.imageUrl} />
           </div>
-          <h1>{selectedCampus.name}</h1>
-          <br />
-          <p>{selectedCampus.description} </p>
-          <br />
-          <h4>{selectedCampus.address} </h4>
+          <div className="singleInfo">
+            <h1>{selectedCampus.name}</h1>
+            <br />
+            <p>{selectedCampus.description} </p>
+            <br />
+            <h4>{selectedCampus.address} </h4>
+
+            <br />
+            <CampusEditDeleteButton
+              selectedCampus={selectedCampus}
+              removeCampusCallback={this.removeCampusCallback}
+            />
+          </div>
         </div>
-        <br />
-        <div>
-          <button className="editButton" type="button">
-            <Link
-              to={`/campuses/campusForm/${selectedCampus.id}`}
-              className="editButton-link"
-            >
-              Edit
-            </Link>
-          </button>
-          <button
-            className="deleteButton"
-            type="button"
-            onClick={this.removeCampusCallback}
-          >
-            Delete
-          </button>
-        </div>
-        <div>
+        <div className="relatedInfo">
           <h2> Students on campus </h2>
           <div className="campus-button">
             <StudentAddButton />
           </div>
-          <br />
-          <div>
+          <div className="singleStudent">
             <ul>
               {selectedCampus.students.map(student => (
                 <SingleStudent student={student} key={student.id} />
