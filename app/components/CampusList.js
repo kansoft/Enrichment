@@ -8,6 +8,7 @@ import CampusAddButton from './CampusAddButton';
 //*-----------------     COMPONENT     -----------------*/
 const CampusList = props => {
   const { campuses } = props;
+  const noCampuses = 'There are no campuses registered in the database';
   return (
     <div>
       <div className="campus-button">
@@ -15,10 +16,11 @@ const CampusList = props => {
       </div>
 
       <ul className="campus-group">
-        {campuses.list &&
-          campuses.list.map(campus => (
-            <SingleCampus campus={campus} key={campus.id} />
-          ))}
+        {campuses.list.length
+          ? campuses.list.map(campus => (
+              <SingleCampus campus={campus} key={campus.id} />
+            ))
+          : noCampuses}
       </ul>
     </div>
   );

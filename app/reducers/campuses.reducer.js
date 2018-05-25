@@ -1,13 +1,13 @@
 /* -----------------    ACTION TYPES    ------------------ */
 const SET_CAMPUSES = 'SET_CAMPUSES';
 const CREATE = 'CREATE_CAMPUS';
-// const UPDATE = 'UPDATE_CAMPUS';
+const UPDATE = 'UPDATE_CAMPUS';
 export const REMOVE = 'REMOVE_CAMPUS';
 
 /* ------------    ACTION CREATORS      ------------------ */
 const setCampuses = campuses => ({ type: SET_CAMPUSES, campuses });
 const create = campus => ({ type: CREATE, campus });
-// const update = campus => ({ type: UPDATE, campus });
+const update = campus => ({ type: UPDATE, campus });
 const remove = id => ({ type: REMOVE, id });
 
 /* ------------         Initial State         ------------------ */
@@ -26,6 +26,14 @@ export default function campusesReducer(state = initialState, action) {
     case CREATE:
       return { list: [...state.list, action.campus], isFetching: true };
 
+    case UPDATE:
+      return {
+        list: state.list.map(
+          campus => (action.campus.id === campus.id ? action.campus : campus)
+        ),
+        isFetching: true,
+      };
+
     case REMOVE:
       return {
         list: state.list.filter(campus => campus.id !== action.id),
@@ -41,9 +49,9 @@ export default function campusesReducer(state = initialState, action) {
 
 export const fetchCampuses = () => {
   return async (dispatch, getState, { axios }) => {
-    const { data } = await axios.get('/api/campuses');
-    const action = setCampuses(data);
     try {
+      const { data } = await axios.get('/api/campuses');
+      const action = setCampuses(data);
       dispatch(action);
     } catch (err) {
       console.error(`Fetching campus unsuccessful`, err);
@@ -53,8 +61,8 @@ export const fetchCampuses = () => {
 
 export const addCampus = (campus, ownProps) => {
   return async (dispatch, getState, { axios }) => {
-    const { data } = await axios.post('/api/campuses', campus);
     try {
+      const { data } = await axios.post('/api/campuses', campus);
       dispatch(create(data));
       ownProps.history.push(`/campuses/${data.id}`);
     } catch (err) {
@@ -63,10 +71,22 @@ export const addCampus = (campus, ownProps) => {
   };
 };
 
+export const updateCampus = (id, campus, ownProps) => {
+  return async (dispatch, getState, { axios }) => {
+    try {
+      const { data } = await axios.update(`/api/campuses/${id}`, campus);
+      dispatch(update(data));
+      ownProps.history.push(`/campuses/${data.id}`);
+    } catch (err) {
+      console.error(`Updating campus: ${id} unsuccessful`, err);
+    }
+  };
+};
+
 export const removeCampus = id => {
   return async (dispatch, getState, { axios }) => {
-    await axios.delete(`/api/campuses/${id}`);
     try {
+      await axios.delete(`/api/campuses/${id}`);
       dispatch(remove(id));
     } catch (err) {
       console.error(`Removing campus: ${id} unsuccessful`, err);

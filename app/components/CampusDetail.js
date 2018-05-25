@@ -5,7 +5,7 @@ import SingleStudent from './SingleStudent';
 import StudentAddButton from './StudentAddButton';
 import { removeCampus } from '../reducers/campuses.reducer';
 
-//*-----------------     COMPONENT     -----------------*/
+//*-----------------     CLASS COMPONENT     -----------------*/
 class CampusDetail extends Component {
   constructor(props) {
     super(props);

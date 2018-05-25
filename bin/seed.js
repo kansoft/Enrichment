@@ -19,7 +19,7 @@ const seed = async () => {
     name: 'Rome Campus',
     address: 'Via Tolmino, 6, 00198 Roma RM, Italy',
     imageUrl:
-      'https://cdn.pixabay.com/photo/2018/05/14/23/22/place-3401862_1280.jpg',
+      'https://www.telegraph.co.uk/content/dam/Travel/leadAssets/26/96/Rome_2696260a.jpg?imwidth=450',
     description: `The world is waiting. Learn a language abroad. See the world, experience a new culture, and make friends from around the world as you prepare for your global future. EF's fun and interactive classes help you learn faster while living the language first hand. Earn college credit, participate in an internship, and explore your dream destination abroad. Start any Monday and study from two weeks and up, or join us for a semester or Gap Year abroad.`,
   });
   const chicago = await Campus.create({

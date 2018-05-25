@@ -9,23 +9,27 @@ import StudentAddButton from './StudentAddButton';
 const StudentList = props => {
   const { students } = props;
   const noCampus = 'No campus selected';
+  const noStudents = 'There are no students registered in the database';
   return (
     <div>
       <div className="campus-button">
         <StudentAddButton />
       </div>
       <ul>
-        {students.list &&
-          students.list.map(student => {
-            return (
-              <div key={student.id}>
-                <SingleStudent student={student} />
-                <li>
-                  <span>{student.campus ? student.campus.name : noCampus}</span>
-                </li>
-              </div>
-            );
-          })}
+        {students.list.length
+          ? students.list.map(student => {
+              return (
+                <div key={student.id}>
+                  <SingleStudent student={student} />
+                  <li>
+                    <span>
+                      {student.campus ? student.campus.name : noCampus}
+                    </span>
+                  </li>
+                </div>
+              );
+            })
+          : noStudents}
       </ul>
     </div>
   );
