@@ -55,6 +55,9 @@ const StudentForm = props => {
             value={props.gpa}
             name="gpa"
             type="number"
+            min="0"
+            max="4"
+            step=".01"
             placeholder="..."
           />
         </label>

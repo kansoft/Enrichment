@@ -11,7 +11,8 @@ const CampusList = props => {
   const { campuses } = props;
   const noCampuses = 'There are no campuses registered in the database';
   return (
-    <div>
+    <div className="studentList">
+      <h2>Campus List:</h2>
       <div className="campus-button">
         <CampusAddButton />
       </div>

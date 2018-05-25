@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 //*-----------------     COMPONENT IMPORTS     -----------------*/
 import CampusForm from './CampusForm';
 import { updateCampus } from '../reducers/campuses.reducer';
+import StudentSelectForm from './StudentSelectForm';
 
 //*-----------------     Default state     -----------------*/
 
@@ -70,6 +71,7 @@ class UpdateCampus extends Component {
           handleSubmit={this.handleSubmit}
           fileChangedHandler={this.fileChangedHandler}
         />
+        <StudentSelectForm handleSubmit={this.handleSubmit} />
       </div>
     );
   }
@@ -79,13 +81,14 @@ const mapState = (state, ownProps) => {
   const id = +ownProps.match.params.id;
   return {
     campus: state.campuses.list.find(campus => campus.id === id),
+    students: state.students,
   };
 };
 
 const mapDispatch = (dispatch, ownProps) => {
   const id = +ownProps.match.params.id;
   return {
-    updateCampus: student => dispatch(updateCampus(id, student, ownProps)),
+    updateCampus: campus => dispatch(updateCampus(id, campus, ownProps)),
   };
 };
 

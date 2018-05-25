@@ -6,8 +6,8 @@ const CampusForm = props => {
     : 'https://www.chefbakers.com/userfiles/pin_photo62522.jpg';
   return (
     <form onSubmit={props.handleSubmit}>
-      <h2>New Campus Form</h2>
       <div className="formCampus">
+        <h2>New Campus Form</h2>
         <label>
           Name:
           <input

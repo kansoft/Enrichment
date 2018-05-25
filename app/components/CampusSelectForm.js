@@ -5,7 +5,7 @@ const CampusSelectForm = props => {
   const { handleChange } = props;
   const campuses = props.campuses.list;
   return (
-    <div key={campuses.id}>
+    <div className="formCampus" key={campuses.id}>
       <label>Campus:</label>
       <br />
       <select onChange={handleChange} name="campusId">

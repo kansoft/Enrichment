@@ -94,6 +94,10 @@ html {
   border: none;
   border-bottom: 2px solid darkcyan;
 }
+.formCampus {
+  position: relative;
+  left: 30px;
+}
   .navbar {
     width: calc(100%);
     left: 100px;

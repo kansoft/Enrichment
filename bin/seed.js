@@ -33,7 +33,7 @@ const seed = async () => {
     name: 'Mumbai Campus',
     address: 'A Rd, Churchgate, Mumbai, Maharashtra 400020, India',
     imageUrl:
-      'https://cdn.pixabay.com/photo/2016/05/03/20/01/mumbai-1370023_1280.jpgg',
+      'https://cdn.pixabay.com/photo/2016/05/03/20/01/mumbai-1370023_1280.jpg',
     description: `The world is waiting. Learn a language abroad. See the world, experience a new culture, and make friends from around the world as you prepare for your global future. EF's fun and interactive classes help you learn faster while living the language first hand. Earn college credit, participate in an internship, and explore your dream destination abroad. Start any Monday and study from two weeks and up, or join us for a semester or Gap Year abroad.`,
   });
 
