@@ -1,4 +1,7 @@
-import { CREATE as CREATE_STUDENT } from './students.reducer';
+import {
+  CREATE as CREATE_STUDENT,
+  UPDATE as UPDATE_STUDENT,
+} from './students.reducer';
 /* -----------------    ACTION TYPES    ------------------ */
 export const SET_CAMPUSES = 'SET_CAMPUSES';
 export const CREATE = 'CREATE_CAMPUS';
@@ -35,6 +38,14 @@ export default function campusesReducer(state = initialState, action) {
         list: state.list.map(
           campus => (action.campus.id === campus.id ? action.campus : campus)
         ),
+        isFetching: true,
+      };
+
+    case UPDATE_STUDENT:
+      return {
+        list: state.list.map(campus => {
+          return action.student.campuId === campus.id ? action.student : campus;
+        }),
         isFetching: true,
       };
 

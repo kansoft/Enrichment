@@ -8,6 +8,7 @@ const StudentDetail = props => {
   const { selectedStudent, selectedCampus, removeStudent } = props;
   const noCampus = 'No campus selected';
   const gpa = selectedStudent.gpa || 'New Student no GPA';
+
   return (
     <div>
       <div className="singleDetail">

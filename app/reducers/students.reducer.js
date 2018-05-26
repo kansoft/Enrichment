@@ -3,7 +3,7 @@ import { REMOVE as REMOVE_STUDENT } from './campuses.reducer';
 /* -----------------    ACTION TYPES    ------------------ */
 const SET_STUDENTS = 'SET_STUDENTS';
 export const CREATE = 'CREATE_STUDENT';
-const UPDATE = 'UPDATE_STUDENT';
+export const UPDATE = 'UPDATE_STUDENT';
 const REMOVE = 'REMOVE_STUDENT';
 
 /* ------------    ACTION CREATORS      ------------------ */
@@ -30,10 +30,9 @@ export default function studentsReducer(state = initialState, action) {
 
     case UPDATE:
       return {
-        list: state.list.map(
-          student =>
-            action.student.id === student.id ? action.student : student
-        ),
+        list: state.list.map(student => {
+          return action.student.id === student.id ? action.student : student;
+        }),
         isFetching: true,
       };
 

@@ -21,7 +21,7 @@ class CampusDetail extends Component {
   }
 
   render() {
-    const { selectedCampus, removeCampus } = this.props;
+    const { selectedCampus } = this.props;
     return (
       <div>
         <div className="singleDetail">

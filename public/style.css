@@ -161,9 +161,9 @@ html {
       padding: 25px
     }
     .singleDetail .singleInfo {
-      width: 60%;
+      width: 50%;
       position: relative;
-      left: 400px;
+      left: 500px;
       top: -250px;
     }
     .singleCampus {

@@ -17,7 +17,7 @@ class SingleCampus extends Component {
   }
 
   render() {
-    const { campus, removeCampus } = this.props;
+    const { removeCampus, campus } = this.props;
     return (
       <div>
         <li>
@@ -36,7 +36,7 @@ class SingleCampus extends Component {
               <br />
               <CampusEditDeleteButton
                 selectedCampus={campus}
-                removeCampusCallback={removeCampus}
+                removeCampusCallback={this.removeCampusCallback}
               />
             </li>
             {/* <br /> */}

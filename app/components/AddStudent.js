@@ -12,7 +12,7 @@ const defaultState = {
   lastName: '',
   email: '',
   imageUrl: '',
-  gpa: 0.0,
+  gpa: 0,
   campusId: null,
 };
 
