@@ -13,7 +13,8 @@ class SingleCampus extends Component {
 
   removeCampusCallback() {
     const { removeCampus } = this.props;
-    removeCampus(this.props.id);
+
+    removeCampus(this.props.campus.id);
   }
 
   render() {

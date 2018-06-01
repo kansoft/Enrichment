@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 //*-----------------     Component Import     -----------------*/
 import SingleStudent from './SingleStudent';
 import StudentAddButton from './StudentAddButton';
+import StudentSelectForm from './StudentSelectForm';
 import { removeCampus } from '../reducers/campuses.reducer';
 import CampusEditDeleteButton from './CampusEdit_DeleteButton';
 
@@ -45,7 +46,8 @@ class CampusDetail extends Component {
         <div className="relatedInfo">
           <h2> Students on campus </h2>
           <div className="campus-button">
-            <StudentAddButton />
+            {/* <StudentAddButton /> */}
+            <StudentSelectForm handleSubmit={this.handleSubmit} />
           </div>
           <div className="singleStudent">
             <ul>
