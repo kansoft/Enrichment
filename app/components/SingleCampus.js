@@ -18,7 +18,7 @@ class SingleCampus extends Component {
   }
 
   render() {
-    const { removeCampus, campus } = this.props;
+    const { campus } = this.props;
     return (
       <div>
         <li>
