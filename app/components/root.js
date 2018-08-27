@@ -70,7 +70,6 @@ class Root extends Component {
 /* -----------------    CONTAINER     ------------------ */
 
 const matchstate = state => {
-  const { students, campuses } = state;
   return {
     isFetching: state.students.isFetching && state.campuses.isFetching,
   };
